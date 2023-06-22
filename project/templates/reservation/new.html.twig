@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Résumé de votre réservations</h1>
+        <table class="table">
+					<thead>
+						<tr>
+							<th>Départ</th>
+							<th>Arrivée</th>
+							<th>Conducteur</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td>{{ trajet.depart }}</td>
+								<td>{{ trajet.arrivee }}</td>
+								<td>{{ trajet.conducteur }}</td>
+                                <form action="{{ path('app_reservation_new')}}" method="post">
+                                    <input type="hidden" name="id_trajet" value="{{ trajet.id }}">
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">Confirmer</button>
+                                    </td>
+                                </form>
+							</tr>
+					</tbody>
+				</table>
+    </div>
+
+{% endblock %}
